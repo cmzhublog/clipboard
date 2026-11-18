@@ -117,7 +117,7 @@ class HotKeyManager {
 
     private func registerBuiltInHandlers() {
         handlers["app_launch"] = {
-            WindowManager.shared.toggleWindow(frame: NSScreen.main?.frame)
+            WindowManager.shared.toggleWindow(frame: NSScreen.screenWithMouse?.frame)
         }
     }
 

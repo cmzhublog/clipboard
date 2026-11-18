@@ -52,7 +52,7 @@ final class ClipMainWindowController: NSWindowController {
         win.hasShadow = false
         win.configureCommonSettings()
 
-        win.collectionBehavior = [.canJoinAllSpaces, .stationary]
+        win.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
     }
 
     func resetState() {
@@ -98,7 +98,7 @@ extension ClipMainWindowController {
         let initiallyHidden = !window.isVisible
 
         if initiallyHidden {
-            let screenFrame = frame ?? NSScreen.main?.frame ?? .zero
+            let screenFrame = frame ?? NSScreen.screenWithMouse?.frame ?? .zero
             AppEnvironment.shared.previousApp = NSWorkspace.shared.frontmostApplication
             let visibleFrame = NSRect(
                 x: screenFrame.minX, y: screenFrame.minY,
